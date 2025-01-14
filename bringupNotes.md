@@ -50,6 +50,15 @@ Partially Resolved
 
 [Relevant Step](#set-up-networking-for-vm)
 
+Running `virsh domifaddr <domain-name>` does not return any IP addresses.
+
 * Domain not set to use DHCP, which the adapter and bridge are set up with. [Link](https://stackoverflow.com/questions/73549741/virsh-domifaddr-domain-name-does-not-show-kvm-ips).
   * Mine is currently set to `<interface type='bridge'>`, unclear whether this is causing an issue.
-
+  * Seems unlikely to be the issue. Searching for results with the interface type I'm using.
+* [This feller](https://serverfault.com/questions/208019/no-ipv4-address-assigned-to-kvm-vm) seems more like what I'm dealing with.
+  * Attempting [first response](https://serverfault.com/questions/208019/no-ipv4-address-assigned-to-kvm-vm#:~:text=This%20is%20most%20likely%20the%20solution.%20Alternatively%20add%20these%20lines%20to%20/etc/sysctl.conf%3A%20net.bridge.bridge%2Dnf%2Dcall%2Dip6tables%20%3D%200%20net.bridge.bridge%2Dnf%2Dcall%2Diptables%20%3D%200%20net.bridge.bridge%2Dnf%2Dcall%2Darptables%20%3D%200) to top solution. Top solution itself seems to be for another distro.
+    * This did not resolve the symptom after reboot.
+* Trying the top solution from [this](https://serverfault.com/questions/627238/kvm-libvirt-how-to-configure-static-guest-ip-addresses-on-the-virtualisation-ho). Seems like it might be what I'm dealing with.
+  * jk, this is for nat or route net types, the search continues.
+* Edited default network, getting tired, stopping for now.
+ 
