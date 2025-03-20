@@ -36,6 +36,10 @@ Per: https://forums.debian.net/viewtopic.php?t=157146#top
 
 * device did not show up
 * hotplug still worked, odd
+
+#### Update Firmware
+
+https://unix.stackexchange.com/questions/384403/debian-stretch-failed-to-load-firmware-rtl-nic-rtl8168g-3-fw-2#:~:text=apt%2Dget%20install%20firmware%2Drealtek
   
 
 ## USB Ethernet Adapter Bridge Cannot Acquire DHCP Lease
